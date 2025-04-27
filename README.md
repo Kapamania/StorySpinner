@@ -95,13 +95,11 @@ Here's an example workflow:
 3. The critique reviews and modifies `brd_output.txt`, saving the approved version as `approved_brd.txt`.
 4. Run `generate_user_stories.py` to create `user_stories.txt` in the `output` directory.
 
-## Contributing
+## Team Member:
+1. Manashi Sarkar (https://www.linkedin.com/in/manashi-sarkar-b1692049/)
+2. Satyaki Majumdar (https://www.linkedin.com/in/satyaki-majumdar-8602a7118/)
+3. Sarbo Mitra (https://www.linkedin.com/in/sarbo-mitra-50338a212/)
 
-We welcome contributions! Please read our contributing guidelines for more details.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Acknowledgments
 

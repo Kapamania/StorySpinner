@@ -4,7 +4,7 @@ StorySpinner is an innovative tool designed to transform meeting transcripts and
 
 ## Problem Definition
 
-In many organizations, the process of converting meeting discussions into actionable documents is time-consuming and prone to errors. StorySpinner addresses this problem by automating the generation of BRDs and user stories from meeting transcripts and recordings, ensuring accuracy and efficiency.
+In many organizations, the process of converting meeting discussions into actionable documents is time-consuming and prone to errors. StorySpinner addresses this problem by automating the generation of BRDs, allowing critique  and user stories from meeting transcripts and recordings, ensuring accuracy and efficiency.
 
 ## Architecture and Implementation
 
@@ -95,16 +95,13 @@ Here's an example workflow:
 3. The critique reviews and modifies `brd_output.txt`, saving the approved version as `approved_brd.txt`.
 4. Run `generate_user_stories.py` to create `user_stories.txt` in the `output` directory.
 
-## Contributing
+## Team Member:
+1. Manashi Sarkar (https://www.linkedin.com/in/manashi-sarkar-b1692049/)
+2. Satyaki Majumdar (https://www.linkedin.com/in/satyaki-majumdar-8602a7118/)
+3. Sarbo Mitra (https://www.linkedin.com/in/sarbo-mitra-50338a212/)
 
-We welcome contributions! Please read our contributing guidelines for more details.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Acknowledgments
 
 - Inspired by the need to streamline the documentation process in project management.
 - Special thanks to the Microsoft RAG Hackathon team for their support and guidance.
-

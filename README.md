@@ -1,68 +1,110 @@
-# meeting_reporter
-Code, samples, and a working streamlit app for demonstrating:
-1. multiagent and human collaboration
-2. the use of langgraph to coordinate the interaction
-3. the mating of the langgraph and streamlit state machines (non-trivial)
+# StorySpinner
 
-The agents are prompted to create a newsstory in collaboration with a human(you)from a meeting transcript or minutes which you either provide a URL to or upload. The input agent uploads or downloads the document as appropriate and extracts text from it; the writer agent drafts; the critique agent critiques; you can edit either the draft or the critique. the cycle continues until you are satisfied with a draft at which point it ia giiven to the output agent to display.
+StorySpinner is an innovative tool designed to transform meeting transcripts and call recordings into comprehensive Business Requirement Documents (BRDs) and user stories. This tool streamlines the documentation process, ensuring that all critical details from meetings are captured and converted into actionable insights.
 
-This concept could easily be extended to different types of news stories as well as different sources ands could include fact checking, RAG from an archive etc.
+## Problem Definition
 
-I started with meetings because there are many more public meetings than there are reporters to cover them.
+In many organizations, the process of converting meeting discussions into actionable documents is time-consuming and prone to errors. StorySpinner addresses this problem by automating the generation of BRDs and user stories from meeting transcripts and recordings, ensuring accuracy and efficiency.
 
-## overview
+## Architecture and Implementation
 
-[langgraph](https://github.com/langchain-ai/langgraph)is a library for building stateful, multi-actor applications with LLMs, built on top of (and intended to be used with) LangChain. It is low-code but not no-code.
+### Architecture Overview
 
-The depository is set up so that an application can be uploaded to the Streamlit cloud. That has been done and the application is [here](https://meeting-reporter.streamlit.app/). The .gitignore and requirements.txt are specific to streamlit cloud.
+!Architecture Overview Diagram
 
-mm_agent.py in this repository contains the main logic and all of the langchain speciifc code for the application. If you run it as a main program in your own Python environment, it will use tkinter rather than streamlit for UI.
+### Implementation Overview
 
-mm_st.py is the main program of the streamlit version and contains all the streamlit specific logic
+#### Data Extraction & Ingestion
 
-mytools.py are a few miscellaneous uilities of mine.
+!Data Extraction & Ingestion Diagram
 
-mm_tkinter.py contains  the tkinter specific code. It is not used in the streamliit version.
+#### Hybrid RAG Approach
 
+StorySpinner utilizes a Hybrid Retrieval-Augmented Generation (RAG) approach to enhance the accuracy and relevance of the generated documents. This approach combines the strengths of retrieval-based and generation-based models to produce high-quality outputs.
 
-## usage
+### Azure AI Studio and Prompt Flow
 
-### as a streamlit app:
-Click the URL https://meeting-reporter.streamlit.app/. You will need an OPENAI api key in the paid tier. The free api key will not work because the agents use GPT4.
+StorySpinner leverages Azure AI Studio for model training and deployment. The prompt flow is designed to ensure seamless interaction between the user and the system, guiding the user through the process of generating and approving documents.
 
-### as a basis for deploying your own Streamlit app.
-1. clone the repository.
-2. make any changes you want to make.
-3. be sure to update .gitignore and requirements.txt as needed.
-4. deploy from Streamlit (you need an acount, of course).
+## Application Overview
 
-### in a Python environment
+StorySpinner accepts meeting transcripts and call recordings as input, generates detailed BRDs, allows for critique and modification, and finally produces user stories once the BRD is approved.
 
-1. download the mm_agent, mytools, and mm_tkinter modules 
-2. Set up a .env file with an entry for OPENAI_API_KEY set equal to your paid OpenAI key or otherwise set an environmental variable with that name
-3. Run mm_agent.py.
+## Technologies Used
 
-### as a custom GPT (no api key or paid subscription required)
-click the URL https://chatgpt.com/g/g-roNR24Ty6-collaborative-meeting-reporter.
+- **Python**: Core programming language for implementation.
+- **LangGraph/Semantic Kernel**: Used for natural language processing and understanding.
+- **Azure DevOps**: For continuous integration and deployment.
+- **Streamlit**: For building the user interface.
+- **Power Automate**: For approval workflows.
 
-## ideas for enhancement
-1. Select a prompt depending on the content of the source
-2. Incorporate fact checking via browsing
-3. Include a process for improving the prompts based on frequent critiqes
-4. add sources and stories to a database (a morgue in news terms)
-5. use RAG to consult the morgue and get background
-6. embed in a larger collaborative newsroom process
-7. acccept audio files for input
-8. incorporate graphics
+## Target Audience
 
-pull requests welcome
+StorySpinner is designed for project managers, business analysts, and development teams who need to streamline the process of documenting meeting outcomes and generating actionable user stories.
 
-## privacy
-No code here explititly collects any information of any kind. However, some usage stastics are available from both github and Streamlit.
+## Conclusion and Future Works
 
-## disclaimer
-This all comes with no warranty of any kind nor any promise to fix problems or maintain compatabity with the code it uses. However, bug reports, issues, and enhancement pull requests are welcome.
+StorySpinner significantly reduces the time and effort required to convert meeting discussions into structured documents. Future enhancements may include integration with more communication platforms, advanced natural language understanding capabilities, and additional customization options for generated documents.
 
+## Getting Started
 
+### Prerequisites
 
+- Python 3.8 or higher
+- Required Python libraries (listed in `requirements.txt`)
+
+### Installation
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/microsoft/RAG_Hack.git
+    cd RAG_Hack/StorySpinner
+    ```
+
+2. Install the required libraries:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+### Usage
+
+1. **Input Meeting Transcript/Recording**:
+    - Place your meeting transcript or call recording in the `input` directory.
+
+2. **Generate BRD**:
+    - Run the following command to generate the Business Requirement Document:
+      ```bash
+      python generate_brd.py --input input/meeting_transcript.txt
+      ```
+
+3. **Critique and Modify BRD**:
+    - The generated BRD will be available in the `output` directory. A designated critique can review and modify the content as needed.
+
+4. **Approve and Generate User Stories**:
+    - Once the BRD is approved, run the following command to generate user stories:
+      ```bash
+      python generate_user_stories.py --input output/approved_brd.txt
+      ```
+
+### Example
+
+Here's an example workflow:
+
+1. Place `meeting_transcript.txt` in the `input` directory.
+2. Run `generate_brd.py` to create `brd_output.txt` in the `output` directory.
+3. The critique reviews and modifies `brd_output.txt`, saving the approved version as `approved_brd.txt`.
+4. Run `generate_user_stories.py` to create `user_stories.txt` in the `output` directory.
+
+## Contributing
+
+We welcome contributions! Please read our contributing guidelines for more details.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- Inspired by the need to streamline the documentation process in project management.
+- Special thanks to the Microsoft RAG Hackathon team for their support and guidance.
 

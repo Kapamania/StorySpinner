@@ -10,9 +10,12 @@ In many organizations, the process of converting meeting discussions into action
 
 ### Architecture Overview
 
-!Architecture Overview Diagram
+![image](https://github.com/user-attachments/assets/527ec609-e874-4d9e-a015-e7bb3a13ea74)
+
 
 ### Implementation Overview
+
+![image](https://github.com/user-attachments/assets/f0e14ff9-12ad-4d8f-8203-0b4c833f6679)
 
 #### Data Extraction & Ingestion
 

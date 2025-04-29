@@ -19,9 +19,7 @@ In many organizations, the process of converting meeting discussions into action
 
 #### Data Extraction & Ingestion
 
-!Data Extraction & Ingestion Diagram
-
-#### Hybrid RAG Approach
+Data Extraction : Meeting recordings and transcripts will be uploaded by the user through the UI. In the future, these transcripts will be uploaded to a blob storage. Data will be extracted from here.
 
 StorySpinner utilizes a Hybrid Retrieval-Augmented Generation (RAG) approach to enhance the accuracy and relevance of the generated documents. This approach combines the strengths of retrieval-based and generation-based models to produce high-quality outputs.
 
